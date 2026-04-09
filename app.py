@@ -14,8 +14,6 @@ st.title("AI Email Writer")
 purpose = st.text_input("Enter Purpose")
 tone = st.selectbox("Select Tone", ["Formal", "Friendly", "Apology", "Request"])
 language = st.selectbox("Select Language", ["English", "Spanish", "French", "German","Chinese","kannada","Hindi"])
-othher_language = st.text_input("if other language selected, please specify here")
-
 
 points = st.text_area("Enter Key Points")
 
@@ -23,7 +21,6 @@ if st.button("Generate Email"):
 
     prompt = f"""
     Write an email ONLY in {language}
-    otrher language: {othher_language}
 
     Purpose: {purpose}
     Tone: {tone}
@@ -36,7 +33,6 @@ if st.button("Generate Email"):
     4. 5 Subject Lines
 
     The entire response must be in {language}
-other language: {othher_language}
     """
 
     response = client.chat.completions.create(
